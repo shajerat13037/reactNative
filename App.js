@@ -1,22 +1,30 @@
-import React , {useState}from "react"
+import React , {Component, useState}from "react"
 import {View,Text,StyleSheet,Button} from "react-native";
 
-
-const App =()=>{
-    const [firstName,setfirstName]= useState("علی");
-   const handleNameChange =()=>{
-       setfirstName("shajerat")
-   }
+class App extends React.Component {
+state ={
+    firstName:"ysef"
+};
+ handleNameChange =()=>{
+    this.setState({firstName:"ali"});
+};
+render(){
     return (
+
         <View style={styles.container}>
           <View style={styles.header}>
-              <Text>{firstName}</Text>
+              <Text>{this.state.firstName}</Text>
           </View>
             <Text>ali2</Text>
-            <Button title="کلیک کن" onPress={handleNameChange}/>
-        </View>
+            <Button title="کلیک کن" onPress={ this.handleNameChange}/>
+        </View> 
     )
-};
+}
+
+}
+
+export default App;
+
 
 const styles = StyleSheet.create({
     container:{
@@ -31,4 +39,3 @@ const styles = StyleSheet.create({
 });
 
 
-export default App;
