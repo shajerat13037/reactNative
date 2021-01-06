@@ -1,21 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React , {useState}from "react"
+import {View,Text,StyleSheet,Button} from "react-native";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>salam</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+
+const App =()=>{
+    const [firstName,setfirstName]= useState("علی");
+   const handleNameChange =()=>{
+       setfirstName("shajerat")
+   }
+    return (
+        <View style={styles.container}>
+          <View style={styles.header}>
+              <Text>{firstName}</Text>
+          </View>
+            <Text>ali2</Text>
+            <Button title="کلیک کن" onPress={handleNameChange}/>
+        </View>
+    )
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container:{
+        flex:1,
+        alignItems:"center",
+        justifyContent:"center",
+        backgroundColor:"wieth"
+    },
+    header:{
+        backgroundColor:"aqua"
+    }
 });
+
+
+export default App;
