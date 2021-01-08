@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View ,FlatList} from 'react-native'
+import { 
+    StyleSheet, 
+    Text,
+     View ,
+     FlatList,
+     TouchableOpacity,
+     TouchableHighlight
+    } from 'react-native'
 
 const App = () => {
     const [name, setname] = useState([
@@ -12,16 +19,25 @@ const App = () => {
         { id: "8", fullname: "reza" },
         { id: "9", fullname: "reza" },
        
-    ]
-    )
+    ] );
+    const deleteItem =  id=>{
+        // const filtered = name.filter(m=>m.id != id);
+        // setname(filtered)
+        setname((prevState)=>{
+        return prevState.filter((m)=>m.id !=id)
+        });
+    }
     return (
         <View style={styles.container}>
            <FlatList
            keyExtractor={item=>item.id} 
-           horizontal={true}
+        //    horizontal={true}
         //    numColumns={2}
             data={name} renderItem={({item:m})=>(
-               <Text style={styles.card}>{m.fullname}</Text>
+              <TouchableHighlight onPress={()=>{deleteItem(m.id)}}>
+                  <Text style={styles.card}>{m.fullname}</Text>
+
+              </TouchableHighlight>
                
            )}/>
            
@@ -45,7 +61,7 @@ const styles = StyleSheet.create({
         fontSize:24,
         textAlign:"center",
         color:"white",
-        margin:
+    
     }
 })
 
