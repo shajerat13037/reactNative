@@ -3,7 +3,7 @@ import { StyleSheet, Text, View ,FlatList} from 'react-native'
 
 const App = () => {
     const [name, setname] = useState([
-        { id: "1", fullname: "alimineBranch2" },
+        { id: "1", fullname: "ali" },
         { id: "2", fullname: "ysef" },
         { id: "3", fullname: "reza" },
         { id: "4", fullname: "reza" },
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         fontSize:24,
         textAlign:"center",
         color:"white",
-        margin:10
+        margin:
     }
 })
 
