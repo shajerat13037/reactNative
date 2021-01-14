@@ -1,67 +1,70 @@
-import React, { useState } from 'react'
-import { 
-    StyleSheet, 
-    Text,
-     View ,
-     FlatList,
-     TouchableOpacity,
-     TouchableHighlight
-    } from 'react-native'
+import React, {useState} from 'react';
+import {View, Alert, FlatList, StyleSheet, Keyboard, TouchableWithoutFeedback} from "react-native";
+import Header from "./component/Header";
+import Person from "./component/Person";
+import AddPerson from "./component/AddPerson";
 
 const App = () => {
-    const [name, setname] = useState([
-        { id: "1", fullname: "ali" },
-        { id: "2", fullname: "ysef" },
-        { id: "3", fullname: "reza" },
-        { id: "4", fullname: "reza" },
-        { id: "6", fullname: "reza" },
-        { id: "7", fullname: "reza" },
-        { id: "8", fullname: "reza" },
-        { id: "9", fullname: "reza" },
-       
-    ] );
-    const deleteItem =  id=>{
-        // const filtered = name.filter(m=>m.id != id);
-        // setname(filtered)
-        setname((prevState)=>{
-        return prevState.filter((m)=>m.id !=id)
-        });
+    const [persons, setPersons] = useState([
+        {name: "علی شجراتی", key: "1"},
+        {name: "یوسف شجراتی", key: "2"},
+        {name: "علی شجراتی", key: "3"},
+        {name: "یوسف شجراتی", key: "4"},
+    ]);
+    const [person, setPerson] = useState("")
+    const deleteHandler = (key) => {
+        setPersons((prePersons) => prePersons.filter((p) => p.key != key));
+    };
+    const submitHandler = () => {
+        if (person.length > 3) {
+
+            setPersons((prevPersons) => [
+                ...prevPersons,
+                {
+                    name: person,
+                    key: Math.floor(Math.random() * 1000).toString()
+                }
+            ]);
+            setPerson("");
+            Keyboard.dismiss();
+        } else {
+            Alert.alert("منو", "مقدار کت", [
+                {text: " فهمیدم", onPress: () => console.log("alert closed")}
+            ])
+        }
     }
     return (
-        <View style={styles.container}>
-           <FlatList
-           keyExtractor={item=>item.id} 
-        //    horizontal={true}
-        //    numColumns={2}
-            data={name} renderItem={({item:m})=>(
-              <TouchableHighlight onPress={()=>{deleteItem(m.id)}}>
-                  <Text style={styles.card}>{m.fullname}</Text>
+       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+           <View style={styles.container}>
+               {/*{Header}*/}
+               <Header/>
+               <View style={styles.body}>
+                   {/*Add Person*/}
+                   <AddPerson
+                       submitHandler={submitHandler}
+                       setPerson={setPerson}
+                       person={person}
+                   />
+                   <View>
+                       <FlatList
+                           data={persons}
+                           renderItem={({item}) => (<Person person={item} deleteHandler={deleteHandler}/>)}
+                       />
+                   </View>
+               </View>
+           </View>
+       </TouchableWithoutFeedback>
+    );
+};
 
-              </TouchableHighlight>
-               
-           )}/>
-           
-        </View>
-    )
-}
-
-export default App
+export default App;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 50,
-        paddingHorizontal: 20
-
+        backgroundColor: "aqua"
     },
-    card:{
-        marginTop:100,
-        padding:24,
-        backgroundColor:"teal",
-        fontSize:24,
-        textAlign:"center",
-        color:"white",
-    
+    body: {
+        padding: 20,
     }
 })
-
