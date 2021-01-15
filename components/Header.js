@@ -13,15 +13,17 @@ export default Header;
 
 const styles = StyleSheet.create({
     header: {
-        height: 100,
-        backgroundColor: "orange",
+        height: 90,
+        backgroundColor: "orangered",
+        alignItems: "center",
+
+
     },
     title: {
-        marginTop: 50,
+        marginTop: 40,
         color: "white",
-        textAlign: "center",
         fontSize: 20,
         fontWeight: "bold"
 
     }
-})
+});
