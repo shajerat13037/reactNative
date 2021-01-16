@@ -10,8 +10,7 @@ import AddPerson from "./components/AddPerson";
 const App = () => {
     console.log("Appication Executed");
 
-    let hello;
-    hello.toString();
+   
 
     const [persons, setPersons] = useState([
         {name: "علی شجراتی", key: "1", completed: false},
