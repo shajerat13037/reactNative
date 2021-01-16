@@ -1,79 +1,64 @@
-import React from 'react';
-import {View, Text, StyleSheet, Keyboard, Alert} from "react-native";
-import Header from "./components/Header"
-import {useState} from "react";
-import {FlatList} from "react-native";
-import Person from "./components/Person";
-import AddPerson from "./components/AddPerson";
+import React from 'react'
+import { StyleSheet, Text, View ,SectionList} from 'react-native'
+const data=[
+    {
+        header:"علی",
+        data:["python","nodejs","java","react"],
+        footer:"اتمام"
+    },
+    {
+        header:"علی",
+        data:["python","nodejs","java","react"],
+        footer:"اتمام"
+    },
 
-
+];
 const App = () => {
-    const [persons, setPersons] = useState([
-        {name: "علی  شجراتی", key: "1", completed: false},
-        {name: "یوسف شجراتی", key: "2", completed: false}
-    ]);
-    const [person, setPerson] = useState("")
-
-    const deleteHandler = (key) => {
-        setPersons((prevPersons) => prevPersons.filter((p) => p.key != key))
-    };
-
-    const submitHandler = () => {
-        if (person.length > 3) {
-
-            setPersons([...persons,
-                {
-                    name: person,
-                    key: Math.floor(Math.random() * 1000).toString(),
-                    completed: false
-                }
-            ]);
-            setPerson("");
-            Keyboard.dismiss();
-        } else {
-            Alert.alert("توجه", "باید بیش از سه کراکتر باشد", [
-                {text: "فهمیدم", onPress: () => console.log("")}
-            ]);
-        }
-    };
-
-    const completedHandler = (key) => {
-        const allPersons = [...persons];
-        const personIndex = allPersons.findIndex(p => p.key === key);
-        const person = allPersons[personIndex];
-        person.completed = !person.completed;
-        allPersons[personIndex] = person;
-        setPersons(allPersons);
-    }
-
     return (
         <View style={styles.container}>
-            {/*Header*/}
-            <Header/>
-            <View style={styles.body}>
-                {/*AddPerson*/}
-                <AddPerson setPerson={setPerson} person={person} submitHandler={submitHandler}/>
-                <FlatList
-                    data={persons}
-                    renderItem={({item}) => (<Person person={item}
-                                                     deleteHandler={deleteHandler}
-                                                     completedHandler={completedHandler}
-                    />)}
-                />
+           <SectionList 
+           sections={data}
+           keyExtractor={(item,index)=> {
+            console.log(item + index);
+            return item + index
+        }}
+        renderItem={({item}) =>(
+            <View style={styles.item}>
+                <Text style={styles.title}>{item}</Text>
             </View>
+        )}
+          renderSectionHeader={({section:{header}}) =>(
+              <Text style={styles.header}>{header}</Text>
+          )}
+          renderSectionFooter={({section:{footer}}) =>(
+              <Text style={styles.header}>{footer}</Text>
+          )}
+          />
         </View>
-    );
-};
+    )
+}
 
-export default App;
+export default App
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "white"
+        marginTop: 20,
+        marginHorizontal: 16,
     },
-    body: {
-        padding: 20,
-        flex: 1
-    }
-})
+    item: {
+        backgroundColor: "lightgrey",
+        padding: 5,
+        marginVertical: 5,
+        borderWidth: 1,
+        borderRadius: 10,
+    },
+    header: {
+        fontSize: 32,
+        backgroundColor: "#fff",
+    },
+    title: {
+        fontSize: 24,
+        textAlign: "center",
+    },
+});
