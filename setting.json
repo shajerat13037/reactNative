@@ -1,0 +1,151 @@
+{
+   "editor.fontSize": 20,
+   "workbench.statusBar.visible": true,
+   "workbench.activityBar.visible": true,
+   "editor.minimap.enabled": false,
+   "breadcrumbs.enabled": true,
+   "editor.renderWhitespace": "none",
+   "workbench.editor.enablePreview": true,
+   "editor.fontFamily": "JetBrainsMono-VariableFont_wght,Consolas , monospace",
+   "workbench.preferredDarkColorTheme": "Atom One Dark",
+   "workbench.preferredHighContrastColorTheme": "Atom One Dark",
+   "workbench.preferredLightColorTheme": "Atom One Dark",
+   "editor.semanticTokenColorCustomizations": null,
+   "editor.renderControlCharacters": false,
+   "react-native.packager.port": 19001,
+   "terminal.integrated.fontSize": 18,
+   "editor.tabSize": 3,
+   "debug.console.fontSize": 16,
+   "markdown.preview.fontSize": 16,
+   "window.zoomLevel": 0,
+   "workbench.colorTheme":"Atom One Dark",
+   "workbench.settings.useSplitJSON": true,
+   "materialTheme.accent": "Yellow",
+   "[json]": {
+
+
+       "editor.quickSuggestions": {
+           "strings": true
+       },
+       "editor.suggest.insertMode": "replace"
+   },
+ 
+   "editor.tokenColorCustomizations": {
+       "[Atom One Dark]": {
+           "textMateRules": [
+               {"scope":"punctuation.definition.string.end",
+                   "settings": {
+                       "foreground": "#698656",
+                       
+                   }
+                   }, 
+               {"scope":"punctuation.definition.string.begin",
+                   "settings": {
+                       "foreground": "#698656",
+                       
+                   }
+                   },
+               {"scope":"punctuation.separator",
+                   "settings": {
+                       "foreground": "#d48d53",
+                       
+                   }
+                   },
+               {"scope":"meta.tag",
+                   "settings": {
+                       "foreground": "#FFC569",
+                       
+                   }
+                   },
+               {"scope":"entity.other.attribute-name",
+                   "settings": {
+                       "foreground": "#bbb5b5",
+                       
+                   }
+                   },
+               {"scope":"entity.name.function",
+                   "settings": {
+                       "foreground": "#FFC569",
+                       
+                   }
+                   },
+               {"scope":"constant.numeric",
+                   "settings": {
+                       "foreground": "#86d3dd",
+                       
+                   }
+                   },
+               {"scope":"variable.parameter",
+                   "settings": {
+                       "foreground": "#bbb5b5",
+                       
+                   }
+                   },
+               {"scope":"variable.other",
+                   "settings": {
+                       "foreground": "#9876AA",
+                       
+                   }
+                   },
+               {"scope":"variable",
+                   "settings": {
+                       "foreground": "#9876AA",
+                       
+                   }
+                   },
+               {"scope":"storage",
+                   "settings": {
+                       "foreground": "#d68645",
+                       
+                   }
+                   },
+               {"scope":"keyword.operator.arithmetic",
+                   "settings": {
+                       "foreground": "#bbb5b5",
+                       
+                   }
+                   },
+               {"scope":"keyword.operator.assignment",
+                   "settings": {
+                       "foreground": "#bbb5b5",
+                       
+                   }
+                   },
+               {"scope":"keyword.operator.logical",
+                   "settings": {
+                       "foreground": "#bbb5b5",
+                       
+                   }
+                   },
+               {"scope":"support.class",
+                   "settings": {
+                       "foreground": "#FFC569",
+                       
+                   }
+                   },
+               {"scope":"support.constant",
+               "settings": {
+                   "foreground": "#9876AA",
+                   
+               }
+               },
+               {"scope":"support.function",
+               "settings": {
+                   "foreground": "#FFC569",
+                   
+               }
+               },
+             
+              {
+                  "scope": "keyword.control",
+                  "settings": {
+                      "foreground": "#d68645",
+                      
+                      
+                  }
+              } 
+           ],
+           "strings": "#698656"
+       }
+   },
+}

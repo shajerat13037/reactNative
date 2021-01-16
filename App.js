@@ -8,7 +8,7 @@ import AddPerson from "./components/AddPerson";
 
 
 const App = () => {
-    console.log("Appication Executed");
+    // console.log("Appication Executed");
 
    
 
