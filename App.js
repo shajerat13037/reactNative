@@ -1,39 +1,18 @@
 import React from 'react'
-import { StyleSheet, Text, View ,SectionList} from 'react-native'
-const data=[
-    {
-        header:"علی",
-        data:["python","nodejs","java","react"],
-        footer:"اتمام"
-    },
-    {
-        header:"علی",
-        data:["python","nodejs","java","react"],
-        footer:"اتمام"
-    },
+import { StyleSheet, Text, View ,Image} from 'react-native'
 
-];
 const App = () => {
     return (
         <View style={styles.container}>
-           <SectionList 
-           sections={data}
-           keyExtractor={(item,index)=> {
-            console.log(item + index);
-            return item + index
+         <Text>hello World</Text>
+         {/* <Image source={require("./assets/icon.png")}/> */}
+        <Image source={{uri:"https://picsum.photos/200/300",
+        width:200,
+        height:300,
         }}
-        renderItem={({item}) =>(
-            <View style={styles.item}>
-                <Text style={styles.title}>{item}</Text>
-            </View>
-        )}
-          renderSectionHeader={({section:{header}}) =>(
-              <Text style={styles.header}>{header}</Text>
-          )}
-          renderSectionFooter={({section:{footer}}) =>(
-              <Text style={styles.header}>{footer}</Text>
-          )}
-          />
+        blurRadius={0}
+        fadeDuration={1000}
+        />
         </View>
     )
 }
@@ -43,22 +22,8 @@ export default App
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 20,
-        marginHorizontal: 16,
+       alignItems:"center",
+       justifyContent:"center"
     },
-    item: {
-        backgroundColor: "lightgrey",
-        padding: 5,
-        marginVertical: 5,
-        borderWidth: 1,
-        borderRadius: 10,
-    },
-    header: {
-        fontSize: 32,
-        backgroundColor: "#fff",
-    },
-    title: {
-        fontSize: 24,
-        textAlign: "center",
-    },
+  
 });
