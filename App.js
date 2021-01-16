@@ -9,7 +9,7 @@ import AddPerson from "./components/AddPerson";
 
 const App = () => {
     const [persons, setPersons] = useState([
-        {name: "علی شجراتی", key: "1", completed: false},
+        {name: "علی ali شجراتی", key: "1", completed: false},
         {name: "یوسف شجراتی", key: "2", completed: false}
     ]);
     const [person, setPerson] = useState("")
