@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, TextInput, Button, StyleSheet} from "react-native";
+import {styles} from "./styles/GlobalStyles"
 
 const AddPerson = ({setPerson, person, submitHandler}) => {
     return (
@@ -20,15 +21,3 @@ const AddPerson = ({setPerson, person, submitHandler}) => {
 };
 
 export default AddPerson;
-
-const styles = StyleSheet.create({
-    input: {
-        paddingHorizontal: 6,
-        paddingVertical: 6,
-        borderBottomWidth: 1,
-        marginBottom: 10,
-        borderBottomColor: "darkgray"
-
-    }
-
-})

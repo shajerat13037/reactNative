@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, StyleSheet, TouchableOpacity, View} from "react-native";
 import {MaterialIcons} from '@expo/vector-icons';
+import {styles} from "./styles/GlobalStyles"
 
 const Person = ({person, deleteHandler, completedHandler}) => {
     return (
@@ -16,24 +17,3 @@ const Person = ({person, deleteHandler, completedHandler}) => {
 };
 
 export default Person;
-
-const styles = StyleSheet.create({
-    persons: {
-        paddingHorizontal: 20,
-        flexDirection: "row",
-        borderColor: "orange",
-        borderWidth: 1,
-        marginTop: 15,
-        alignItems: "center",
-        height: 50,
-        justifyContent: "space-between",
-        borderRadius: 20,
-
-    },
-    personTitle: {
-        fontSize: 18,
-        color: "black",
-
-    }
-
-})
