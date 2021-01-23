@@ -9,7 +9,7 @@ const Home = (props) => {
     return (
         <View style={styles.container}>
             <Text>Home</Text>
-            <Button title="next" onPress={pressHandler}/>
+            <Button title="next" />
         </View>
     )
 }
