@@ -1,10 +1,21 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Button } from 'react-native'
 
-const About = () => {
+const Seperator=()=>{
+   return  <View style={styles.seperator}></View>
+};
+const About = ({navigation}) => {
+
    return (
       <View style={styles.container}>
          <Text>About</Text>
+         <Button title="برگشت به خانه" onPress={()=>navigation.navigate("Home")} />
+        <Seperator/>
+         <Button title="برگشت ه" onPress={()=>navigation.goBack()} />
+        <Seperator/>
+         <Button title="برگشت درباره" onPress={()=>navigation.push("About")} />
+        <Seperator/>
+         <Button title="برگشت به بالا" onPress={()=>navigation.popToTop("About")} />
       </View>
    )
 }
@@ -17,5 +28,8 @@ const styles = StyleSheet.create({
       backgroundColor: "white",
       alignItems:"center",
       justifyContent:"center"
+   },
+   seperator:{
+      marginVertical:10,
    }
 })
