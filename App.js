@@ -4,6 +4,7 @@ import {NavigationContainer} from "@react-navigation/native"
 import {createStackNavigator} from '@react-navigation/stack'
 import About from './screens/About'
 import Home from './screens/Home'
+import Details from './screens/Details';
 const Stack= createStackNavigator();
 const App = () => {
     return (
@@ -11,6 +12,9 @@ const App = () => {
             <Stack.Navigator>
 <Stack.Screen name="Home" component={Home}/>
 <Stack.Screen name="About" component={About}/>
+<Stack.Screen name="Details" component={Details}
+initialParams={{id:"2",text:"خدانگهدار"}}
+/>
             </Stack.Navigator>
 
         </NavigationContainer>

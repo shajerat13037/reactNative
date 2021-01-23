@@ -4,7 +4,7 @@ import { StyleSheet, Text, View ,Button} from 'react-native'
 
 const Home = (props) => {
     const pressHandler =()=>{
-        props.navigation.navigate("About")
+        props.navigation.navigate("Details",{id:"1",text:"سلام"})
     }
     return (
         <View style={styles.container}>
