@@ -2,6 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, View,Button } from 'react-native'
 
 
+
+
 const Details = ({navigation,route}) => {
 const {id,text}=route.params;
    return (
@@ -10,6 +12,9 @@ const {id,text}=route.params;
        <View styles={styles.seperator}>
           <Text>{id}</Text>
           <Text>{text}</Text>
+       </View>
+       <View styles={styles.seperator}>
+          <Button title="بروزرسانی" onPress={()=>navigation.setOptions({title:"بروزرسانی"})}/>
        </View>
       </View>
    )
