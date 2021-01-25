@@ -1,19 +1,37 @@
 import React from 'react'
-import {Button,View} from "react-native";
+import {Button,View,Text} from "react-native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {NavigationContainer} from "@react-navigation/native";
-import {Ionicons} from "@expo/vector-icons"
+import {Ionicons} from "@expo/vector-icons";
+import {createStackNavigator} from "@react-navigation/stack"
+
+const Tab =createBottomTabNavigator();
+const Stack= createStackNavigator();
+
 
 
 const HomeScreen = ({navigation}) => {
-   
+ return(
+     <Tab.Navigator>
+         <Tab.Screen name="Settings" component={Setting}/>
+         <Tab.Screen name="Profile" component={Profile}/>
+     </Tab.Navigator>
 
+ )
+};
+const Setting = ({navigation}) => {
     return (
      <View style={{flex:1 ,alignItems:"center",justifyContent:"center"}}>
-         <Button onPress={()=>navigation.navigate("Information")} title="صفه اطلاعات"/>
-     <View style={{marginBottom:20}}>
-         <Ionicons name="ios-information-circle"/>
+    <Text>Setting</Text>
+<Button title="informaton" onPress={()=>navigation.navigate("Information")}/>
      </View>
+    );
+};
+const Profile = ({navigation}) => {
+    return (
+     <View style={{flex:1 ,alignItems:"center",justifyContent:"center"}}>
+<Text>Profile</Text>
+    
      </View>
     );
 };
@@ -32,36 +50,14 @@ const Information = ({navigation}) => {
 
 
 
-const Tab =createBottomTabNavigator();
 
 const App = () => {
     return (
         <NavigationContainer>
-          <Tab.Navigator screenOptions={({route})=>({
-              tabBarIcon:({focused,color,size})=>{
-                  let iconName; 
-                  if(route.name ==="Home"){
-                      iconName=focused ? "ios-information-circle":
-                      "ios-information-circle-outline"
-                  }else if(route.name=== "Information"){
-                      iconName = focused ? "ios-list-box" :"ios-list"
-                  }
-                  return(
-                    <Ionicons name={iconName} size={size} color={color}/>
-                  );
-              }
-          })}
-          tabBarOptions={{
-              activeTintColor:"tomato",
-              inactiveTintColor:"gray"
-          }}>
-              <Tab.Screen name="Home" component={HomeScreen}/>
-              <Tab.Screen name="Information" component={Information}
-              options={{
-             title:"info",
-             tabBarVisible:false,
-             }}/>
-          </Tab.Navigator>
+       <Stack.Navigator>
+           <Stack.Screen name="Home" component={HomeScreen}/>
+           <Stack.Screen name="Information" component={Information}/>
+       </Stack.Navigator>
         </NavigationContainer>
         );
 };
