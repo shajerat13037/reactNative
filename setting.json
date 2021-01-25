@@ -12,7 +12,7 @@
    "workbench.preferredLightColorTheme": "Atom One Dark",
    "editor.semanticTokenColorCustomizations": null,
    "editor.renderControlCharacters": false,
-   "react-native.packager.port": 19001,
+   "react-native.packager.port": 19003,
    "terminal.integrated.fontSize": 18,
    "editor.tabSize": 3,
    "debug.console.fontSize": 16,
