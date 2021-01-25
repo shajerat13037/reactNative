@@ -3,7 +3,8 @@ import { Button, View, Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer,useFocusEffect } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
-import { createStackNavigator } from "@react-navigation/stack"
+import { createStackNavigator } from "@react-navigation/stack";
+import ModalScreen from './screens/ModalScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -26,6 +27,7 @@ const Setting = ({ navigation }) => {
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
             <Text>Setting</Text>
             <Button title="Profile" onPress={() => navigation.navigate("Profile")} />
+            <Button title="Open Modal" onPress={() => navigation.navigate("Modal")} />
         </View>
     );
 };
@@ -87,6 +89,11 @@ const App = () => {
                                 component={HomeScreen} />
                                 <HomeStack.Screen name ="Information"
                                 component={Information}/>
+                                <HomeStack.Screen name ="Modal"
+                                component={ModalScreen}
+                                options={{
+                                    headerShown:false
+                                }}/>
                         </HomeStack.Navigator>
 
 
